@@ -34,12 +34,12 @@ app.get('/api/pokemons/:id', (req, res) => {
 });
 
 app.post('/api/pokemons', (req, res) => {
-    const newPokemon = {...req.body, id: Math.random()};
+    const newPokemon = {...req.body};
     pokemons.push(newPokemon);
     res.json({ newPokemon })
 })
 
-// fetch("http://localhost:3000/api/pokemons", { method: "POST", body: JSON.stringify({ name: "Oddish" }), 
+// fetch("http://localhost:3000/api/pokemons", { method: "POST", body: JSON.stringify({ name: "Oddish", id: "152" }), 
 // headers: {'Content-Type': 'application/json'}})
 //HEJHEJHEJ
 
@@ -53,10 +53,34 @@ app.post('/api/pokemons', (req, res) => {
 
 // 4. DELETE /pokemons/:id - this route should allow you to delete a specific Pokemon from the array.
 
+app.delete('/api/pokemons/:id', (req, res) => {
+    const pokemonIndex = pokemons.findIndex(pokemon => pokemon.id === req.params.id);
+    pokemons.splice(pokemonIndex, 1);
+    console.log(pokemonIndex);
+    res.send('something deleted');
+})
+
+//fetch("http://localhost:3000/api/pokemons/1", { method: "DELETE" })
+
 // 5. PATCH /pokemons/:id - this route should accept edits to existing Pokemons.
+
+app.put('/api/pokemons/:id', (req, res) => {
+    const pokemonIndex = pokemons.findIndex(pokemon => pokemon.id === req.params.id);
+    pokemons[pokemonIndex] = {...req.body};
+    res.send('name changed');
+})
+
+
+//fetch("http://localhost:3000/api/pokemons/1", { method: "PUT", body: JSON.stringify({ name: "Oddish" }), 
+//headers: {'Content-Type': 'application/json'}}) 
 
 // 6. Write the logic for the query parameter ( /api/pokemons?search=Pikachu ), so that this route's 
 // response is a match on a Pokemon's name
+
+app.get('/api/pokemons/?search=Pikachu', (req, res) => {
+    const pokemon = pokemons.find(pokemon => pokemon.name === req.query.search);
+    res.send(pokemon);
+});
 
 
 //gotta add a listener :)))))))
