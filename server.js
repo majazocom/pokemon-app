@@ -39,7 +39,8 @@ app.post('/api/pokemons', (req, res) => {
     res.json({ newPokemon })
 })
 
-// fetch("http://localhost:3000/api/pokemons", { method: "POST", body: JSON.stringify({ name: "Oddish" }), headers: {'Content-Type': 'application/json'}})
+// fetch("http://localhost:3000/api/pokemons", { method: "POST", body: JSON.stringify({ name: "Oddish" }), 
+// headers: {'Content-Type': 'application/json'}})
 
 
 //gotta add a listener :)))))))
