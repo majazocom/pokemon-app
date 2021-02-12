@@ -41,6 +41,22 @@ app.post('/api/pokemons', (req, res) => {
 
 // fetch("http://localhost:3000/api/pokemons", { method: "POST", body: JSON.stringify({ name: "Oddish" }), 
 // headers: {'Content-Type': 'application/json'}})
+//HEJHEJHEJ
+
+//Exercises
+
+// 1. GET /pokemons- this should respond with a list of Pokemons.
+
+// 2. POST /pokemons- this route should accept form data and add it to the Pokemon list.
+
+// 3. GET /pokemons/:id - this route should display a single Pokemon's name
+
+// 4. DELETE /pokemons/:id - this route should allow you to delete a specific Pokemon from the array.
+
+// 5. PATCH /pokemons/:id - this route should accept edits to existing Pokemons.
+
+// 6. Write the logic for the query parameter ( /api/pokemons?search=Pikachu ), so that this route's 
+// response is a match on a Pokemon's name
 
 
 //gotta add a listener :)))))))
